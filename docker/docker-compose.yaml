@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  data-reco:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - DEBIAN_FRONTEND=noninteractive
+
+    image: "data-recommendation:latest"
+    network_mode: "host"
+    container_name: datareco
+    privileged: true
+    #restart: on-failure
+
+    volumes:
+      - /home/frinks2/amal/modelevalution/docker-vols/model_logs:/data-recommend/model_logs
+      - /home/frinks2/atharva/assembly-dataset-recommender/dataset/pointrend:/data-recommend/data
+      - /home/frinks2/atharva/assembly-dataset-recommender/dataset/pointrend_res:/data-recommend/output
+      - /home/frinks2/atharva/assembly-dataset-recommender/scripts:/data-recommend/scripts
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+
+    working_dir: /data-recommend/scripts
+    command: python3 main.py

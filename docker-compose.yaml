@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  data-reco:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - DEBIAN_FRONTEND=noninteractive
+
+    image: "data-recommendation:latest"
+    network_mode: "host"
+    container_name: datareco
+    privileged: true
+    #restart: on-failure
+
+    volumes:
+      - /home/frinksserver/pallavi/data_loader/dockerization/assembly-dataset-recommender/model_logs:/data-recommend/model_logs
+      - /home/frinksserver/pallavi/data_loader/dockerization/assembly-dataset-recommender/scripts/recomm_data/honda:/data-recommend/data
+      - /home/frinksserver/pallavi/data_loader/dockerization/assembly-dataset-recommender/scripts/recomm_data/honda_op:/data-recommend/output
+      - /home/frinksserver/pallavi/data_loader/dockerization/assembly-dataset-recommender/scripts:/data-recommend/scripts
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+
+    working_dir: /data-recommend/scripts
+    command: python3 main.py

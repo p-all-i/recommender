@@ -1,0 +1,64 @@
+{
+    "modelKey": 0,
+    "classes":["classA", "classB", "classC"],
+    "rois": {
+        "637d1ca9-a6fc-4b33-95d2-7df7e2b88224": {
+          "classes": ["gear1","gear2"],
+            "cropping": [0, 0, 1570, 2040]
+        },
+        "637d1ca9-a6fc-4b33-95n2-7df7e2b88224": {
+          "classes": ["bearing"],
+          "cropping": [1570, 0, 3070, 2040]
+        }
+      },
+    "states": {
+      "RECOMMENDATION_STARTED": 10,
+      "RECOMMENDATION_RUNNING": 11,
+      "RECOMMENDATION_COMPLETED": 12,
+      "RECOMMENDATION_ERROR": 13
+  },
+    "positive": [
+        {
+          "image": "s3://assembly-online-dataset/images/camera_conf_1/8.png",
+          "annotation": "s3://assembly-online-dataset/files/camera_conf_1/8.txt"
+        },
+        {
+          "image": "s3://assembly-online-dataset/images/camera_conf_1/9.png",
+          "annotation": "s3://assembly-online-dataset/files/camera_conf_1/9.txt"
+        },
+        {
+          "image": "s3://assembly-online-dataset/images/camera_conf_1/10.png",
+          "annotation": "s3://assembly-online-dataset/files/camera_conf_1/10.txt"
+        },
+        {
+          "image": "s3://assembly-online-dataset/images/camera_conf_1/41.png",
+          "annotation": "s3://assembly-online-dataset/files/camera_conf_1/41.txt"
+        },
+        {
+          "image": "s3://assembly-online-dataset/images/camera_conf_1/8.png",
+          "annotation": "s3://assembly-online-dataset/files/camera_conf_1/8.txt"
+        }
+    ],
+    "negative": [
+        {
+            "image": "s3://assembly-online-dataset/images/camera_conf_1/9.png",
+            "annotation": "s3://assembly-online-dataset/files/camera_conf_1/9.txt"
+          },
+          {
+            "image": "s3://assembly-online-dataset/images/camera_conf_1/10.png",
+            "annotation": "s3://assembly-online-dataset/files/camera_conf_1/10.txt"
+          },
+          {
+            "image": "s3://assembly-online-dataset/images/camera_conf_1/41.png",
+            "annotation": "s3://assembly-online-dataset/files/camera_conf_1/41.txt"
+          },
+          {
+            "image": "s3://assembly-online-dataset/images/camera_conf_1/8.png",
+            "annotation": "s3://assembly-online-dataset/files/camera_conf_1/8.txt"
+          },
+          {
+            "image": "s3://assembly-online-dataset/images/camera_conf_1/9.png",
+            "annotation": "s3://assembly-online-dataset/files/camera_conf_1/9.txt"
+          }
+    ]
+}
