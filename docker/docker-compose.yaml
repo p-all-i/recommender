@@ -7,18 +7,21 @@ services:
       dockerfile: Dockerfile
       args:
         - DEBIAN_FRONTEND=noninteractive
+      
 
     image: "data-recommendation:latest"
+    environment: 
+      CONFIG_ID: ${CONFIG_ID}
     network_mode: "host"
     container_name: datareco
     privileged: true
     #restart: on-failure
 
     volumes:
-      - /home/frinks2/amal/modelevalution/docker-vols/model_logs:/data-recommend/model_logs
-      - /home/frinks2/atharva/assembly-dataset-recommender/dataset/pointrend:/data-recommend/data
-      - /home/frinks2/atharva/assembly-dataset-recommender/dataset/pointrend_res:/data-recommend/output
-      - /home/frinks2/atharva/assembly-dataset-recommender/scripts:/data-recommend/scripts
+      - ./docker_vols/model_logs:/data-recommend/model_logs
+      - ./docker_vols/data/recomm_data/honda:/data-recommend/data
+      - ./docker_vols/data/recomm_data/honda_op:/data-recommend/output
+      - .scripts:/data-recommend/scripts
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
 
